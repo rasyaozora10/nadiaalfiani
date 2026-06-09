@@ -1,0 +1,1557 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Untuk Bebe — Nadia Alfiani</title>
+<meta name="description" content="Surat cinta digital, khusus untuk Nadia Alfiani." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+  /* ========================
+     RESET & BASE
+  ======================== */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --ivory: #F9F6F1;
+    --champagne: #F5E9D8;
+    --soft-rose: #F7E7E7;
+    --warm-beige: #E9DDCF;
+    --gold: #D4AF37;
+    --gold-light: #F0D870;
+    --deep-brown: #5A4A42;
+    --brown-light: #8B7A72;
+    --text-main: #3A2E2A;
+    --text-muted: #7A6A62;
+    --white: #FFFFFF;
+    --transition: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  html { scroll-behavior: smooth; font-size: 16px; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--ivory);
+    color: var(--text-main);
+    overflow-x: hidden;
+    cursor: none;
+  }
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 500;
+    line-height: 1.2;
+  }
+  img { max-width: 100%; height: auto; display: block; }
+
+  /* ========================
+     CUSTOM CURSOR
+  ======================== */
+  #cursor {
+    width: 12px; height: 12px;
+    background: var(--gold);
+    border-radius: 50%;
+    position: fixed; top: 0; left: 0;
+    pointer-events: none; z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: transform 0.15s ease, width 0.3s ease, height 0.3s ease, opacity 0.3s ease;
+    mix-blend-mode: multiply;
+  }
+  #cursor-ring {
+    width: 36px; height: 36px;
+    border: 1px solid var(--gold);
+    border-radius: 50%;
+    position: fixed; top: 0; left: 0;
+    pointer-events: none; z-index: 9998;
+    transform: translate(-50%, -50%);
+    transition: all 0.08s ease;
+    opacity: 0.5;
+  }
+  a, button { cursor: none; }
+
+  /* ========================
+     PRELOADER
+  ======================== */
+  #preloader {
+    position: fixed; inset: 0;
+    background: var(--ivory);
+    display: flex; align-items: center; justify-content: center;
+    z-index: 10000;
+    flex-direction: column;
+  }
+  .preloader-text {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.2rem, 4vw, 2rem);
+    color: var(--deep-brown);
+    letter-spacing: 0.05em;
+    opacity: 0;
+    position: absolute;
+    text-align: center;
+    padding: 0 2rem;
+  }
+  .preloader-line {
+    position: absolute;
+    bottom: 40%;
+    width: 60px; height: 1px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transform-origin: center;
+  }
+
+  /* ========================
+     SCROLL INDICATOR
+  ======================== */
+  .scroll-indicator {
+    position: absolute; bottom: 2.5rem; left: 50%;
+    transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center;
+    gap: 6px; opacity: 0.7;
+    animation: scrollPulse 2s ease-in-out infinite;
+  }
+  .scroll-indicator span {
+    font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--ivory); font-weight: 300;
+  }
+  .scroll-line {
+    width: 1px; height: 40px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+    animation: scrollLine 2s ease-in-out infinite;
+  }
+  @keyframes scrollPulse { 0%,100%{opacity:0.5} 50%{opacity:1} }
+  @keyframes scrollLine { 0%{transform:scaleY(0);transform-origin:top} 50%{transform:scaleY(1);transform-origin:top} 51%{transform-origin:bottom} 100%{transform:scaleY(0);transform-origin:bottom} }
+
+  /* ========================
+     BUTTONS
+  ======================== */
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase;
+    font-weight: 500; text-decoration: none;
+    padding: 0.9rem 2.2rem;
+    border: 1px solid;
+    transition: all 0.4s var(--transition);
+    cursor: none;
+    background: none;
+  }
+  .btn-light {
+    color: var(--ivory);
+    border-color: rgba(249,246,241,0.5);
+  }
+  .btn-light:hover {
+    background: rgba(249,246,241,0.1);
+    border-color: var(--ivory);
+  }
+  .btn-gold {
+    color: var(--gold);
+    border-color: var(--gold);
+  }
+  .btn-gold:hover {
+    background: var(--gold);
+    color: var(--deep-brown);
+  }
+  .btn-dark {
+    color: var(--deep-brown);
+    border-color: var(--deep-brown);
+  }
+  .btn-dark:hover {
+    background: var(--deep-brown);
+    color: var(--ivory);
+  }
+
+  /* ========================
+     SECTION SHARED
+  ======================== */
+  section { position: relative; overflow: hidden; }
+  .section-label {
+    font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--gold); font-weight: 500; margin-bottom: 1rem;
+  }
+  .gold-line {
+    width: 40px; height: 1px; background: var(--gold);
+    margin: 1.5rem auto;
+  }
+
+  /* Reveal animations */
+  .reveal {
+    opacity: 0; transform: translateY(32px);
+    transition: opacity 0.9s var(--transition), transform 0.9s var(--transition);
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-left {
+    opacity: 0; transform: translateX(-40px);
+    transition: opacity 0.9s var(--transition), transform 0.9s var(--transition);
+  }
+  .reveal-left.visible { opacity: 1; transform: translateX(0); }
+  .reveal-right {
+    opacity: 0; transform: translateX(40px);
+    transition: opacity 0.9s var(--transition), transform 0.9s var(--transition);
+  }
+  .reveal-right.visible { opacity: 1; transform: translateX(0); }
+
+  /* ========================
+     SECTION 1 — HERO
+  ======================== */
+  #hero {
+    height: 100vh; min-height: 600px;
+    display: flex; align-items: center; justify-content: center;
+    text-align: center;
+    background: var(--deep-brown);
+    position: relative;
+  }
+  #hero-bg {
+    position: absolute; inset: 0;
+    background-image: url('assets/hero.jpg'); /* GANTI: path foto hero */
+    background-size: cover; background-position: center;
+    opacity: 0.55;
+    transition: opacity 1s ease;
+  }
+  .hero-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(58,46,42,0.2) 0%,
+      rgba(58,46,42,0.5) 60%,
+      rgba(58,46,42,0.8) 100%
+    );
+  }
+  .hero-content {
+    position: relative; z-index: 2;
+    padding: 2rem;
+    max-width: 760px;
+  }
+  .hero-label {
+    font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--gold-light); margin-bottom: 1.5rem;
+    opacity: 0; animation: fadeUp 1s 0.5s var(--transition) forwards;
+  }
+  .hero-title {
+    font-size: clamp(3.5rem, 10vw, 7rem);
+    color: var(--ivory);
+    font-style: italic;
+    line-height: 1;
+    margin-bottom: 1.5rem;
+    opacity: 0; animation: fadeUp 1s 0.8s var(--transition) forwards;
+  }
+  .hero-sub {
+    font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+    color: rgba(249,246,241,0.8);
+    font-weight: 300; line-height: 1.8;
+    max-width: 520px; margin: 0 auto 2.5rem;
+    opacity: 0; animation: fadeUp 1s 1.1s var(--transition) forwards;
+  }
+  .hero-btns {
+    display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
+    opacity: 0; animation: fadeUp 1s 1.4s var(--transition) forwards;
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Particles */
+  #particles-canvas {
+    position: absolute; inset: 0;
+    pointer-events: none; z-index: 1;
+  }
+
+  /* ========================
+     SECTION 2 — ABOUT
+  ======================== */
+  #about {
+    padding: 7rem 0;
+    background: var(--ivory);
+  }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    max-width: 1200px; margin: 0 auto;
+    align-items: center;
+  }
+  .about-photo {
+    aspect-ratio: 3/4;
+    overflow: hidden;
+    position: relative;
+  }
+  .about-photo img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s var(--transition);
+  }
+  .about-photo:hover img { transform: scale(1.04); }
+  .about-text {
+    padding: 4rem 5rem 4rem 5rem;
+  }
+  .about-badge {
+    display: inline-block;
+    font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--deep-brown); font-weight: 500;
+    border: 1px solid var(--warm-beige);
+    padding: 0.5rem 1rem; margin-bottom: 2rem;
+    background: var(--champagne);
+  }
+  .about-title {
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    color: var(--deep-brown);
+    margin-bottom: 2rem;
+    font-style: italic;
+  }
+  .about-body {
+    font-size: 1rem; line-height: 2;
+    color: var(--text-muted); font-weight: 300;
+  }
+  .about-body p { margin-bottom: 1rem; }
+
+  /* ========================
+     SECTION 3 — LITTLE THINGS
+  ======================== */
+  #little-things {
+    padding: 7rem 2rem;
+    background: var(--champagne);
+    text-align: center;
+  }
+  .section-title {
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    color: var(--deep-brown);
+  }
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+    max-width: 1100px; margin: 3rem auto 0;
+  }
+  .thing-card {
+    background: var(--ivory);
+    border: 1px solid rgba(212,175,55,0.2);
+    padding: 2.5rem 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.4s var(--transition), box-shadow 0.4s var(--transition);
+  }
+  .thing-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0;
+    width: 2px; height: 0;
+    background: var(--gold);
+    transition: height 0.4s var(--transition);
+  }
+  .thing-card:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(90,74,66,0.1); }
+  .thing-card:hover::before { height: 100%; }
+  .thing-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem; color: rgba(212,175,55,0.2);
+    font-weight: 700; line-height: 1;
+    margin-bottom: 1rem; text-align: left;
+  }
+  .thing-title {
+    font-size: 0.9rem; font-weight: 500;
+    color: var(--deep-brown); letter-spacing: 0.05em;
+    text-align: left; margin-bottom: 0.5rem;
+  }
+  .thing-desc {
+    font-size: 0.85rem; color: var(--text-muted);
+    line-height: 1.7; text-align: left; font-weight: 300;
+  }
+  /* Float animation */
+  @keyframes floatCard {
+    0%,100%{ transform: translateY(0) }
+    50%{ transform: translateY(-8px) }
+  }
+  .thing-card:nth-child(1){ animation: floatCard 6s 0s ease-in-out infinite; }
+  .thing-card:nth-child(2){ animation: floatCard 6s 1s ease-in-out infinite; }
+  .thing-card:nth-child(3){ animation: floatCard 6s 2s ease-in-out infinite; }
+  .thing-card:nth-child(4){ animation: floatCard 6s 0.5s ease-in-out infinite; }
+  .thing-card:nth-child(5){ animation: floatCard 6s 1.5s ease-in-out infinite; }
+  .thing-card:nth-child(6){ animation: floatCard 6s 2.5s ease-in-out infinite; }
+  .thing-card:hover { animation: none; }
+
+  /* ========================
+     SECTION 4 — GALLERY
+  ======================== */
+  #gallery {
+    padding: 7rem 2rem;
+    background: var(--ivory);
+    text-align: center;
+  }
+  .gallery-grid {
+    columns: 3;
+    column-gap: 1rem;
+    max-width: 1200px; margin: 3rem auto 0;
+  }
+  .gallery-item {
+    break-inside: avoid;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    position: relative;
+    cursor: none;
+  }
+  .gallery-item img {
+    width: 100%; display: block;
+    transition: transform 0.6s var(--transition);
+  }
+  .gallery-item:hover img { transform: scale(1.06); }
+  .gallery-caption {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    background: linear-gradient(to top, rgba(58,46,42,0.8) 0%, transparent 100%);
+    color: var(--ivory); font-size: 0.75rem; font-weight: 300;
+    padding: 1.5rem 1rem 0.75rem;
+    opacity: 0; transform: translateY(8px);
+    transition: all 0.4s var(--transition);
+    letter-spacing: 0.05em;
+  }
+  .gallery-item:hover .gallery-caption { opacity: 1; transform: translateY(0); }
+
+  /* Lightbox */
+  #lightbox {
+    display: none;
+    position: fixed; inset: 0;
+    background: rgba(30,22,18,0.95);
+    z-index: 8000;
+    align-items: center; justify-content: center;
+    flex-direction: column;
+  }
+  #lightbox.open { display: flex; }
+  #lightbox img {
+    max-width: 90vw; max-height: 85vh;
+    object-fit: contain;
+  }
+  #lightbox-caption {
+    color: rgba(249,246,241,0.6);
+    font-size: 0.8rem; margin-top: 1rem; letter-spacing: 0.1em;
+  }
+  #lightbox-close {
+    position: absolute; top: 1.5rem; right: 2rem;
+    color: var(--ivory); font-size: 2rem;
+    background: none; border: none; cursor: none;
+    opacity: 0.7; transition: opacity 0.3s;
+    font-weight: 300; line-height: 1;
+  }
+  #lightbox-close:hover { opacity: 1; }
+
+  /* ========================
+     SECTION 5 — VIDEO
+  ======================== */
+  #videos {
+    padding: 7rem 2rem;
+    background: #1E1610;
+    text-align: center;
+  }
+  #videos .section-label { color: var(--gold-light); }
+  #videos .section-title { color: var(--ivory); }
+  #videos .section-sub { color: rgba(249,246,241,0.6); font-size: 1rem; font-weight: 300; margin-top: 0.75rem; }
+  .videos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    max-width: 1000px; margin: 3rem auto 0;
+  }
+  .video-thumb {
+    position: relative; overflow: hidden;
+    aspect-ratio: 16/9;
+    cursor: none;
+    background: #2E2218;
+    border: 1px solid rgba(212,175,55,0.15);
+  }
+  .video-thumb img {
+    width: 100%; height: 100%; object-fit: cover;
+    opacity: 0.7; transition: opacity 0.4s, transform 0.6s var(--transition);
+  }
+  .video-thumb:hover img { opacity: 0.9; transform: scale(1.04); }
+  .video-play-btn {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .play-circle {
+    width: 60px; height: 60px;
+    border: 1px solid rgba(212,175,55,0.6);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.4s var(--transition);
+    background: rgba(212,175,55,0.1);
+    backdrop-filter: blur(4px);
+  }
+  .play-circle svg {
+    width: 20px; height: 20px;
+    fill: var(--gold-light);
+    margin-left: 3px;
+  }
+  .video-thumb:hover .play-circle {
+    background: rgba(212,175,55,0.25);
+    transform: scale(1.1);
+  }
+  .video-label {
+    position: absolute; bottom: 0.75rem; left: 1rem;
+    color: rgba(249,246,241,0.7); font-size: 0.75rem; letter-spacing: 0.08em;
+    font-weight: 300;
+  }
+
+  /* Video Modal */
+  #video-modal {
+    display: none;
+    position: fixed; inset: 0;
+    background: rgba(20,14,10,0.97);
+    z-index: 8000; align-items: center; justify-content: center;
+  }
+  #video-modal.open { display: flex; }
+  #video-modal video, #video-modal iframe {
+    max-width: 90vw; max-height: 80vh;
+    width: 900px;
+  }
+  #video-modal-close {
+    position: absolute; top: 1.5rem; right: 2rem;
+    color: var(--ivory); font-size: 2rem;
+    background: none; border: none; cursor: none;
+    opacity: 0.7; transition: opacity 0.3s; font-weight: 300;
+  }
+  #video-modal-close:hover { opacity: 1; }
+
+  /* ========================
+     SECTION 6 — TIMELINE
+  ======================== */
+  #timeline {
+    padding: 7rem 2rem;
+    background: var(--soft-rose);
+    text-align: center;
+  }
+  .timeline-wrap {
+    max-width: 700px; margin: 4rem auto 0;
+    position: relative;
+  }
+  .timeline-wrap::before {
+    content: '';
+    position: absolute; left: 50%; top: 0; bottom: 0;
+    width: 1px; background: var(--gold);
+    transform: translateX(-50%);
+    opacity: 0.4;
+  }
+  .timeline-item {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 1.5rem;
+    align-items: center;
+    margin-bottom: 4rem;
+  }
+  .timeline-item:nth-child(even) .tl-content { order: 3; text-align: left; }
+  .timeline-item:nth-child(even) .tl-photo { order: 1; }
+  .tl-content { text-align: right; }
+  .tl-dot {
+    width: 12px; height: 12px;
+    background: var(--gold);
+    border-radius: 50%;
+    border: 3px solid var(--soft-rose);
+    box-shadow: 0 0 0 1px var(--gold);
+    flex-shrink: 0;
+  }
+  .tl-label {
+    font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 0.5rem;
+  }
+  .tl-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem; color: var(--deep-brown);
+    font-style: italic; margin-bottom: 0.5rem;
+  }
+  .tl-desc {
+    font-size: 0.85rem; color: var(--text-muted);
+    line-height: 1.7; font-weight: 300;
+  }
+  .tl-photo {
+    width: 80px; height: 80px;
+    border-radius: 50%; overflow: hidden;
+    border: 2px solid rgba(212,175,55,0.4);
+    flex-shrink: 0;
+  }
+  .tl-photo img {
+    width: 100%; height: 100%; object-fit: cover;
+  }
+  .tl-photo-placeholder {
+    width: 100%; height: 100%;
+    background: var(--champagne);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--gold); font-size: 0.6rem; letter-spacing: 0.1em;
+    text-align: center; font-weight: 500;
+  }
+
+  /* ========================
+     SECTION 7 — LETTER
+  ======================== */
+  #letter {
+    padding: 8rem 2rem;
+    background: var(--ivory);
+    position: relative;
+  }
+  #letter::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image:
+      repeating-linear-gradient(
+        to bottom,
+        transparent 0px,
+        transparent 31px,
+        rgba(212,175,55,0.08) 31px,
+        rgba(212,175,55,0.08) 32px
+      );
+    pointer-events: none;
+  }
+  .letter-wrap {
+    max-width: 680px; margin: 0 auto;
+    background: rgba(255,255,255,0.6);
+    border: 1px solid rgba(212,175,55,0.2);
+    padding: 4rem 4rem 3rem;
+    position: relative;
+    backdrop-filter: blur(8px);
+  }
+  .letter-wrap::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+  }
+  .letter-to {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem; font-style: italic;
+    color: var(--deep-brown); margin-bottom: 2rem;
+  }
+  .letter-body {
+    font-size: 1rem; line-height: 2.2;
+    color: var(--text-main); font-weight: 300;
+  }
+  .letter-body p { margin-bottom: 1.2rem; }
+  #typing-cursor {
+    display: inline-block;
+    width: 2px; height: 1.1em;
+    background: var(--gold);
+    margin-left: 2px;
+    animation: blink 0.8s ease-in-out infinite;
+    vertical-align: text-bottom;
+  }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+  .letter-signature {
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(212,175,55,0.2);
+  }
+  .signature-text {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.8rem; color: var(--deep-brown);
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.8s var(--transition);
+  }
+  .signature-text.show { opacity: 1; transform: translateY(0); }
+  .signature-sub {
+    font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--text-muted); margin-top: 0.5rem; font-weight: 300;
+  }
+
+  /* ========================
+     SECTION 8 — DREAMS
+  ======================== */
+  #dreams {
+    padding: 8rem 2rem;
+    background: var(--deep-brown);
+    text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .dreams-particles {
+    position: absolute; inset: 0; pointer-events: none;
+  }
+  .dream-particle {
+    position: absolute;
+    width: 3px; height: 3px;
+    background: var(--gold);
+    border-radius: 50%;
+    animation: dreamFloat linear infinite;
+  }
+  @keyframes dreamFloat {
+    0%{ transform: translateY(100vh) rotate(0deg); opacity: 0; }
+    10%{ opacity: 1; }
+    90%{ opacity: 1; }
+    100%{ transform: translateY(-100px) rotate(360deg); opacity: 0; }
+  }
+  #dreams .section-label { color: var(--gold-light); }
+  #dreams .section-title { color: var(--ivory); margin-bottom: 2rem; }
+  .dreams-quote {
+    max-width: 620px; margin: 0 auto;
+    font-size: 1rem; line-height: 2.2;
+    color: rgba(249,246,241,0.75);
+    font-weight: 300; font-style: italic;
+    font-family: 'Playfair Display', serif;
+  }
+  .dreams-quote p { margin-bottom: 1rem; }
+  .dreams-name {
+    margin-top: 3rem;
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    color: var(--gold);
+    letter-spacing: 0.05em;
+  }
+
+  /* ========================
+     SECTION 9 — FINAL
+  ======================== */
+  #final {
+    height: 100vh; min-height: 600px;
+    display: flex; align-items: center; justify-content: center;
+    text-align: center;
+    position: relative; overflow: hidden;
+    background: var(--deep-brown);
+  }
+  #final-bg {
+    position: absolute; inset: 0;
+    background-image: url('assets/final-bg.jpg'); /* GANTI: path foto/video background akhir */
+    background-size: cover; background-position: center;
+    opacity: 0.4;
+    filter: blur(4px);
+    transform: scale(1.05);
+  }
+  .final-overlay {
+    position: absolute; inset: 0;
+    background: rgba(30,16,8,0.6);
+  }
+  .final-content {
+    position: relative; z-index: 2;
+    padding: 2rem;
+  }
+  .final-title {
+    font-size: clamp(2.5rem, 8vw, 5.5rem);
+    color: var(--ivory); font-style: italic;
+    line-height: 1.1; margin-bottom: 1.5rem;
+  }
+  .final-sub {
+    font-size: clamp(0.95rem, 2vw, 1.1rem);
+    color: rgba(249,246,241,0.7);
+    font-weight: 300; margin-bottom: 2.5rem;
+    font-style: italic; font-family: 'Playfair Display', serif;
+  }
+
+  /* Music Player */
+  #music-player {
+    position: fixed; bottom: -120px; left: 0; right: 0;
+    height: 80px;
+    background: rgba(30,22,18,0.95);
+    backdrop-filter: blur(12px);
+    border-top: 1px solid rgba(212,175,55,0.2);
+    z-index: 7000;
+    display: flex; align-items: center; justify-content: center;
+    gap: 1.5rem; padding: 0 2rem;
+    transition: bottom 0.6s var(--transition);
+  }
+  #music-player.open { bottom: 0; }
+  .music-info { text-align: left; }
+  .music-song {
+    font-size: 0.85rem; color: var(--ivory); font-weight: 500;
+    font-family: 'Playfair Display', serif; font-style: italic;
+  }
+  .music-artist {
+    font-size: 0.7rem; color: rgba(249,246,241,0.5);
+    letter-spacing: 0.1em; text-transform: uppercase;
+  }
+  .music-controls {
+    display: flex; align-items: center; gap: 1rem;
+  }
+  .music-btn {
+    background: none; border: 1px solid rgba(212,175,55,0.4);
+    color: var(--gold); width: 40px; height: 40px;
+    border-radius: 50%; cursor: none;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.3s;
+  }
+  .music-btn:hover { background: rgba(212,175,55,0.2); }
+  .music-btn svg { width: 16px; height: 16px; fill: var(--gold); }
+  #music-close {
+    position: absolute; top: 50%; right: 1.5rem;
+    transform: translateY(-50%);
+    background: none; border: none; color: rgba(249,246,241,0.4);
+    font-size: 1.2rem; cursor: none; transition: color 0.3s;
+  }
+  #music-close:hover { color: var(--ivory); }
+
+  /* ========================
+     FOOTER
+  ======================== */
+  footer {
+    background: var(--deep-brown);
+    padding: 3rem 2rem;
+    text-align: center;
+    border-top: 1px solid rgba(212,175,55,0.15);
+  }
+  footer p {
+    font-size: 0.8rem; color: rgba(249,246,241,0.4);
+    letter-spacing: 0.1em; font-weight: 300;
+  }
+  footer .gold-heart {
+    color: var(--gold);
+  }
+
+  /* Floating hearts */
+  .floating-heart {
+    position: fixed;
+    pointer-events: none;
+    z-index: 100;
+    font-size: 1rem;
+    animation: floatHeart 4s ease-out forwards;
+    opacity: 0;
+  }
+  @keyframes floatHeart {
+    0%  { transform: translateY(0) scale(0.5) rotate(0deg); opacity: 0.8; }
+    100%{ transform: translateY(-300px) scale(1.2) rotate(20deg); opacity: 0; }
+  }
+
+  /* ========================
+     RESPONSIVE
+  ======================== */
+  @media (max-width: 768px) {
+    .about-grid { grid-template-columns: 1fr; }
+    .about-text { padding: 3rem 1.5rem; }
+    .about-photo { aspect-ratio: 4/3; }
+    .gallery-grid { columns: 2; }
+    .letter-wrap { padding: 2.5rem 1.5rem; }
+    .timeline-wrap::before { left: 20px; transform: none; }
+    .timeline-item { grid-template-columns: 1fr; gap: 0.75rem; }
+    .timeline-item:nth-child(even) .tl-content { order: 0; text-align: left; }
+    .timeline-item:nth-child(even) .tl-photo { order: 0; }
+    .tl-content { text-align: left; }
+    .tl-dot { display: none; }
+    .tl-photo { width: 60px; height: 60px; }
+  }
+  @media (max-width: 480px) {
+    .gallery-grid { columns: 1; }
+    .videos-grid { grid-template-columns: 1fr; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- Custom Cursor -->
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+
+<!-- ========================
+     PRELOADER
+======================== -->
+<div id="preloader">
+  <p class="preloader-text" id="pl1">Untuk seseorang yang sangat berarti...</p>
+  <p class="preloader-text" id="pl2">Nadia Alfiani</p>
+  <p class="preloader-text" id="pl3">❤️</p>
+  <div class="preloader-line" id="pl-line"></div>
+</div>
+
+<!-- ========================
+     SECTION 1 — HERO
+======================== -->
+<section id="hero">
+  <div id="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <canvas id="particles-canvas"></canvas>
+
+  <div class="hero-content">
+    <p class="hero-label">Digital Love Letter</p>
+    <h1 class="hero-title">Untuk Bebe.</h1>
+    <p class="hero-sub">Dari semua hal baik yang pernah datang ke hidupku, kamu adalah salah satu yang paling aku syukuri.</p>
+    <div class="hero-btns">
+      <a href="#about" class="btn btn-light">Cerita Kita</a>
+      <a href="#letter" class="btn btn-gold">Surat Untukmu</a>
+    </div>
+  </div>
+
+  <div class="scroll-indicator">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- ========================
+     SECTION 2 — ABOUT
+======================== -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-photo reveal-left">
+      <!-- GANTI src dengan path foto kamu -->
+      <img src="assets/nadia-1.jpg" alt="Nadia Alfiani" loading="lazy"
+           onerror="this.style.background='#E9DDCF';this.style.minHeight='400px';this.alt=''" />
+    </div>
+    <div class="about-text reveal-right">
+      <span class="about-badge">Universitas Negeri Semarang</span>
+      <h2 class="about-title">Hai Nadia.</h2>
+      <div class="about-body">
+        <p>Perempuan yang kadang keras kepala.</p>
+        <p>Kadang bilang gapapa padahal jelas ada apa-apa.</p>
+        <p>Kadang membuatku bingung.</p>
+        <p>Tapi selalu berhasil menjadi alasan kenapa hariku terasa lebih menyenangkan.</p>
+        <p>Kamu bukan orang yang sempurna. Aku pun tidak. Tapi ada sesuatu yang berbeda dari cara kamu ada di hidupku — sesuatu yang sulit dijelaskan, tapi selalu terasa.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================
+     SECTION 3 — LITTLE THINGS
+======================== -->
+<section id="little-things">
+  <div class="reveal">
+    <p class="section-label">Yang Membuatmu Istimewa</p>
+    <h2 class="section-title">Hal-Hal Kecil Yang Aku Sukai Dari Kamu</h2>
+    <div class="gold-line"></div>
+  </div>
+
+  <div class="cards-grid">
+    <div class="thing-card reveal">
+      <div class="thing-number">01</div>
+      <p class="thing-title">Cara kamu bercerita</p>
+      <p class="thing-desc">Setiap cerita yang kamu sampaikan selalu punya cara tersendiri untuk bikin orang betah mendengarkan.</p>
+    </div>
+    <div class="thing-card reveal">
+      <div class="thing-number">02</div>
+      <p class="thing-title">Semangatmu mengejar mimpi</p>
+      <p class="thing-desc">Tekadmu menjadi PNS Kejaksaan mengingatkanku bahwa mimpi besar layak untuk diperjuangkan.</p>
+    </div>
+    <div class="thing-card reveal">
+      <div class="thing-number">03</div>
+      <p class="thing-title">Tawa yang selalu bikin tenang</p>
+      <p class="thing-desc">Ada sesuatu dalam tawamu yang bisa mengubah hari yang berat menjadi lebih ringan dalam hitungan detik.</p>
+    </div>
+    <div class="thing-card reveal">
+      <div class="thing-number">04</div>
+      <p class="thing-title">Perhatian kecil yang tulus</p>
+      <p class="thing-desc">Hal-hal kecil yang sering tidak kamu sadari — justru itulah yang paling membekas.</p>
+    </div>
+    <div class="thing-card reveal">
+      <div class="thing-number">05</div>
+      <p class="thing-title">Kepedulianmu pada orang lain</p>
+      <p class="thing-desc">Cara kamu peduli tanpa harus diminta menunjukkan siapa kamu sebenarnya — seseorang yang baik hatinya.</p>
+    </div>
+    <div class="thing-card reveal">
+      <div class="thing-number">06</div>
+      <p class="thing-title">Tekadmu untuk terus tumbuh</p>
+      <p class="thing-desc">Cara kamu selalu mencoba menjadi lebih baik, setiap hari, membuatku bangga menjadi bagian dari perjalananmu.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========================
+     SECTION 4 — GALLERY
+======================== -->
+<section id="gallery">
+  <div class="reveal">
+    <p class="section-label">Kenangan</p>
+    <h2 class="section-title">Potongan Cerita Kita</h2>
+    <div class="gold-line"></div>
+    <p style="color:var(--text-muted);font-size:0.9rem;font-weight:300;margin-top:-0.5rem">Karena beberapa kenangan terlalu berharga untuk dilupakan.</p>
+  </div>
+
+  <div class="gallery-grid">
+    <!-- GANTI src dengan path foto-foto kamu. Format: assets/gallery-1.jpg dst -->
+    <div class="gallery-item" onclick="openLightbox(this)">
+      <img src="assets/gallery-1.jpg" alt="Kenangan 1" loading="lazy"
+           onerror="this.parentElement.style.display='none'" />
+      <div class="gallery-caption">Kenangan 1</div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(this)">
+      <img src="assets/gallery-2.jpg" alt="Kenangan 2" loading="lazy"
+           onerror="this.parentElement.style.display='none'" />
+      <div class="gallery-caption">Kenangan 2</div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(this)">
+      <img src="assets/gallery-3.jpg" alt="Kenangan 3" loading="lazy"
+           onerror="this.parentElement.style.display='none'" />
+      <div class="gallery-caption">Kenangan 3</div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(this)">
+      <img src="assets/gallery-4.jpg" alt="Kenangan 4" loading="lazy"
+           onerror="this.parentElement.style.display='none'" />
+      <div class="gallery-caption">Kenangan 4</div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(this)">
+      <img src="assets/gallery-5.jpg" alt="Kenangan 5" loading="lazy"
+           onerror="this.parentElement.style.display='none'" />
+      <div class="gallery-caption">Kenangan 5</div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(this)">
+      <img src="assets/gallery-6.jpg" alt="Kenangan 6" loading="lazy"
+           onerror="this.parentElement.style.display='none'" />
+      <div class="gallery-caption">Kenangan 6</div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(this)">
+      <img src="assets/gallery-7.jpg" alt="Kenangan 7" loading="lazy"
+           onerror="this.parentElement.style.display='none'" />
+      <div class="gallery-caption">Kenangan 7</div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(this)">
+      <img src="assets/gallery-8.jpg" alt="Kenangan 8" loading="lazy"
+           onerror="this.parentElement.style.display='none'" />
+      <div class="gallery-caption">Kenangan 8</div>
+    </div>
+  </div>
+</section>
+
+<!-- Lightbox -->
+<div id="lightbox">
+  <button id="lightbox-close" onclick="closeLightbox()">&#10005;</button>
+  <img id="lightbox-img" src="" alt="" />
+  <p id="lightbox-caption"></p>
+</div>
+
+<!-- ========================
+     SECTION 5 — VIDEOS
+======================== -->
+<section id="videos">
+  <div class="reveal">
+    <p class="section-label">Momen</p>
+    <h2 class="section-title">Momen Yang Bisa Diputar Kembali</h2>
+    <p class="section-sub">Ada kenangan yang selalu menyenangkan untuk dilihat sekali lagi.</p>
+    <div class="gold-line"></div>
+  </div>
+
+  <div class="videos-grid">
+    <!-- GANTI src video/thumbnail sesuai file kamu -->
+    <div class="video-thumb reveal" onclick="openVideo('assets/video-1.mp4')">
+      <img src="assets/video-thumb-1.jpg" alt="Video 1"
+           onerror="this.style.opacity='0'" />
+      <div class="video-play-btn">
+        <div class="play-circle">
+          <svg viewBox="0 0 16 16"><path d="M4 2l10 6-10 6z"/></svg>
+        </div>
+      </div>
+      <span class="video-label">Momen 01</span>
+    </div>
+    <div class="video-thumb reveal" onclick="openVideo('assets/video-2.mp4')">
+      <img src="assets/video-thumb-2.jpg" alt="Video 2"
+           onerror="this.style.opacity='0'" />
+      <div class="video-play-btn">
+        <div class="play-circle">
+          <svg viewBox="0 0 16 16"><path d="M4 2l10 6-10 6z"/></svg>
+        </div>
+      </div>
+      <span class="video-label">Momen 02</span>
+    </div>
+    <div class="video-thumb reveal" onclick="openVideo('assets/video-3.mp4')">
+      <img src="assets/video-thumb-3.jpg" alt="Video 3"
+           onerror="this.style.opacity='0'" />
+      <div class="video-play-btn">
+        <div class="play-circle">
+          <svg viewBox="0 0 16 16"><path d="M4 2l10 6-10 6z"/></svg>
+        </div>
+      </div>
+      <span class="video-label">Momen 03</span>
+    </div>
+  </div>
+</section>
+
+<!-- Video Modal -->
+<div id="video-modal">
+  <button id="video-modal-close" onclick="closeVideo()">&#10005;</button>
+  <video id="modal-video" controls playsinline></video>
+</div>
+
+<!-- ========================
+     SECTION 6 — TIMELINE
+======================== -->
+<section id="timeline">
+  <div class="reveal">
+    <p class="section-label">Perjalanan</p>
+    <h2 class="section-title">Perjalanan Kita</h2>
+    <div class="gold-line"></div>
+  </div>
+
+  <div class="timeline-wrap">
+
+    <div class="timeline-item reveal">
+      <div class="tl-content">
+        <p class="tl-label">Awal</p>
+        <h3 class="tl-title">Awal Bertemu</h3>
+        <p class="tl-desc">Pertemuan pertama yang tidak pernah kusangka akan menjadi awal dari sesuatu yang berarti.</p>
+      </div>
+      <div class="tl-dot"></div>
+      <div class="tl-photo">
+        <!-- GANTI: assets/tl-1.jpg -->
+        <img src="assets/tl-1.jpg" alt="Awal bertemu"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+        <div class="tl-photo-placeholder" style="display:none">Foto</div>
+      </div>
+    </div>
+
+    <div class="timeline-item reveal">
+      <div class="tl-photo">
+        <img src="assets/tl-2.jpg" alt="Mulai dekat"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+        <div class="tl-photo-placeholder" style="display:none">Foto</div>
+      </div>
+      <div class="tl-dot"></div>
+      <div class="tl-content">
+        <p class="tl-label">Dekat</p>
+        <h3 class="tl-title">Mulai Dekat</h3>
+        <p class="tl-desc">Tanpa disadari, obrolan sederhana berubah jadi percakapan yang tidak pernah ingin berakhir.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item reveal">
+      <div class="tl-content">
+        <p class="tl-label">Cerita</p>
+        <h3 class="tl-title">Banyak Cerita</h3>
+        <p class="tl-desc">Bersama kamu, setiap momen biasa terasa seperti cerita yang layak untuk diingat.</p>
+      </div>
+      <div class="tl-dot"></div>
+      <div class="tl-photo">
+        <img src="assets/tl-3.jpg" alt="Banyak cerita"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+        <div class="tl-photo-placeholder" style="display:none">Foto</div>
+      </div>
+    </div>
+
+    <div class="timeline-item reveal">
+      <div class="tl-photo">
+        <img src="assets/tl-4.jpg" alt="Hari ini"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+        <div class="tl-photo-placeholder" style="display:none">Foto</div>
+      </div>
+      <div class="tl-dot"></div>
+      <div class="tl-content">
+        <p class="tl-label">Sekarang</p>
+        <h3 class="tl-title">Hari Ini</h3>
+        <p class="tl-desc">Di sini, sekarang, aku bersyukur atas semua perjalanan yang membawa kita ke titik ini.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item reveal">
+      <div class="tl-content">
+        <p class="tl-label">Nanti</p>
+        <h3 class="tl-title">Masa Depan</h3>
+        <p class="tl-desc">Apapun yang akan terjadi, aku berharap kamu selalu menjadi bagian dari cerita yang indah.</p>
+      </div>
+      <div class="tl-dot"></div>
+      <div class="tl-photo">
+        <div class="tl-photo-placeholder">✦</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ========================
+     SECTION 7 — LETTER
+======================== -->
+<section id="letter">
+  <div class="letter-wrap reveal" id="letter-wrap">
+    <div class="section-label" style="text-align:center;margin-bottom:0.5rem">Surat Untukmu</div>
+    <h2 class="letter-to">Untuk Bebe,</h2>
+    <div class="letter-body" id="letter-text"></div>
+    <div class="letter-signature">
+      <div class="signature-text" id="sig">— Seseorang yang peduli</div>
+      <p class="signature-sub">dengan sepenuh hati</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========================
+     SECTION 8 — DREAMS
+======================== -->
+<section id="dreams">
+  <div class="dreams-particles" id="dreams-particles"></div>
+  <div style="position:relative;z-index:2;max-width:700px;margin:0 auto;text-align:center">
+    <div class="reveal">
+      <p class="section-label">Untukmu</p>
+      <h2 class="section-title">Mimpi Yang Sedang Kamu Kejar</h2>
+      <div class="gold-line"></div>
+    </div>
+    <div class="dreams-quote reveal">
+      <p>Aku tahu perjalanan menuju cita-citamu tidak selalu mudah.</p>
+      <p>Ada hari ketika semuanya terasa berat.</p>
+      <p>Ada hari ketika kamu meragukan dirimu sendiri.</p>
+      <p>Tapi aku percaya.</p>
+    </div>
+    <div class="dreams-name reveal">Nadia Alfiani,</div>
+    <div class="dreams-quote reveal" style="margin-top:1rem">
+      <p>akan berdiri dengan bangga sebagai seseorang yang berhasil mewujudkan mimpinya — menjadi PNS Kejaksaan yang luar biasa.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========================
+     SECTION 9 — FINAL
+======================== -->
+<section id="final">
+  <div id="final-bg"></div>
+  <div class="final-overlay"></div>
+  <div class="final-content reveal">
+    <p class="section-label" style="color:var(--gold-light)">Pesan Terakhir</p>
+    <h2 class="final-title">Aku Bangga Sama<br/>Kamu, Bebe.</h2>
+    <p class="final-sub">Lebih dari yang mungkin pernah aku ungkapkan.</p>
+    <button class="btn btn-gold" onclick="openMusicPlayer()">
+      ♪ &nbsp; Putar Lagu Kita
+    </button>
+  </div>
+</section>
+
+<!-- ========================
+     FOOTER
+======================== -->
+<footer>
+  <p>Made with love, khusus untuk Nadia Alfiani <span class="gold-heart">❤️</span></p>
+</footer>
+
+<!-- ========================
+     MUSIC PLAYER
+======================== -->
+<div id="music-player">
+  <div class="music-info">
+    <!-- GANTI: nama lagu dan artis -->
+    <div class="music-song">Lagu Kita</div>
+    <div class="music-artist">Artis · 2024</div>
+  </div>
+  <div class="music-controls">
+    <button class="music-btn" onclick="toggleMusic()" id="play-pause-btn">
+      <svg id="play-icon" viewBox="0 0 16 16"><path d="M4 2l10 6-10 6z"/></svg>
+      <svg id="pause-icon" style="display:none" viewBox="0 0 16 16">
+        <rect x="3" y="2" width="4" height="12"/><rect x="9" y="2" width="4" height="12"/>
+      </svg>
+    </button>
+  </div>
+  <!-- GANTI src dengan path file musik kamu: assets/lagu-kita.mp3 -->
+  <audio id="bg-audio" loop>
+    <source src="assets/lagu-kita.mp3" type="audio/mpeg" />
+  </audio>
+  <button id="music-close" onclick="closeMusicPlayer()">✕</button>
+</div>
+
+<!-- ========================
+     JAVASCRIPT
+======================== -->
+<script>
+// ===========================
+// CURSOR
+// ===========================
+const cursor = document.getElementById('cursor');
+const ring = document.getElementById('cursor-ring');
+let mx = 0, my = 0, rx = 0, ry = 0;
+document.addEventListener('mousemove', e => {
+  mx = e.clientX; my = e.clientY;
+  cursor.style.left = mx + 'px';
+  cursor.style.top  = my + 'px';
+});
+(function animRing(){
+  rx += (mx - rx) * 0.12;
+  ry += (my - ry) * 0.12;
+  ring.style.left = rx + 'px';
+  ring.style.top  = ry + 'px';
+  requestAnimationFrame(animRing);
+})();
+document.querySelectorAll('a, button, .gallery-item, .video-thumb').forEach(el => {
+  el.addEventListener('mouseenter', () => {
+    cursor.style.width = '20px'; cursor.style.height = '20px';
+    ring.style.width = '50px'; ring.style.height = '50px';
+  });
+  el.addEventListener('mouseleave', () => {
+    cursor.style.width = '12px'; cursor.style.height = '12px';
+    ring.style.width = '36px'; ring.style.height = '36px';
+  });
+});
+
+// ===========================
+// PRELOADER
+// ===========================
+(function() {
+  const pl1 = document.getElementById('pl1');
+  const pl2 = document.getElementById('pl2');
+  const pl3 = document.getElementById('pl3');
+  const pll = document.getElementById('pl-line');
+  const pre = document.getElementById('preloader');
+
+  function fadeIn(el, delay) {
+    return new Promise(res => {
+      setTimeout(() => {
+        el.style.transition = 'opacity 0.8s ease';
+        el.style.opacity = 1;
+        setTimeout(res, 1000);
+      }, delay);
+    });
+  }
+  function fadeOut(el) {
+    return new Promise(res => {
+      el.style.transition = 'opacity 0.6s ease';
+      el.style.opacity = 0;
+      setTimeout(res, 700);
+    });
+  }
+
+  async function runPreloader() {
+    pll.style.transition = 'transform 0.8s ease';
+    pll.style.transform  = 'scaleX(1)';
+    await new Promise(r => setTimeout(r, 300));
+
+    await fadeIn(pl1, 200);
+    await fadeOut(pl1);
+    await fadeIn(pl2, 200);
+    await fadeOut(pl2);
+    await fadeIn(pl3, 200);
+    await new Promise(r => setTimeout(r, 600));
+    await fadeOut(pl3);
+
+    pre.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+    pre.style.opacity = 0;
+    pre.style.transform = 'scale(1.04)';
+    setTimeout(() => { pre.style.display = 'none'; }, 900);
+  }
+
+  runPreloader();
+})();
+
+// ===========================
+// PARTICLES — HERO
+// ===========================
+(function() {
+  const canvas = document.getElementById('particles-canvas');
+  const ctx    = canvas.getContext('2d');
+  let W, H, particles = [];
+
+  function resize() {
+    W = canvas.width  = canvas.offsetWidth;
+    H = canvas.height = canvas.offsetHeight;
+  }
+
+  class Particle {
+    constructor() { this.reset(); }
+    reset() {
+      this.x  = Math.random() * W;
+      this.y  = Math.random() * H;
+      this.vx = (Math.random() - 0.5) * 0.3;
+      this.vy = -Math.random() * 0.5 - 0.2;
+      this.r  = Math.random() * 1.5 + 0.5;
+      this.a  = Math.random() * 0.6 + 0.2;
+      this.life = 0;
+      this.maxLife = Math.random() * 300 + 150;
+    }
+    update() {
+      this.x += this.vx; this.y += this.vy; this.life++;
+      if (this.life > this.maxLife || this.y < -5) this.reset();
+    }
+    draw() {
+      const t = this.life / this.maxLife;
+      const alpha = this.a * (t < 0.2 ? t/0.2 : t > 0.8 ? (1-t)/0.2 : 1);
+      ctx.save();
+      ctx.globalAlpha = alpha;
+      ctx.fillStyle = '#D4AF37';
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.restore();
+    }
+  }
+
+  resize();
+  window.addEventListener('resize', resize);
+  for (let i = 0; i < 80; i++) particles.push(new Particle());
+
+  (function loop() {
+    ctx.clearRect(0, 0, W, H);
+    particles.forEach(p => { p.update(); p.draw(); });
+    requestAnimationFrame(loop);
+  })();
+})();
+
+// ===========================
+// SCROLL REVEAL
+// ===========================
+const reveals = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.15 });
+reveals.forEach(el => observer.observe(el));
+
+// ===========================
+// LIGHTBOX
+// ===========================
+function openLightbox(el) {
+  const img = el.querySelector('img');
+  const cap = el.querySelector('.gallery-caption');
+  document.getElementById('lightbox-img').src = img.src;
+  document.getElementById('lightbox-caption').textContent = cap ? cap.textContent : '';
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.getElementById('lightbox').addEventListener('click', function(e) {
+  if (e.target === this) closeLightbox();
+});
+
+// ===========================
+// VIDEO MODAL
+// ===========================
+function openVideo(src) {
+  const v = document.getElementById('modal-video');
+  v.src = src;
+  document.getElementById('video-modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  v.play();
+}
+function closeVideo() {
+  const v = document.getElementById('modal-video');
+  v.pause(); v.src = '';
+  document.getElementById('video-modal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.getElementById('video-modal').addEventListener('click', function(e) {
+  if (e.target === this) closeVideo();
+});
+
+// ===========================
+// TYPING EFFECT — LETTER
+// ===========================
+(function() {
+  const text = `Kalau disuruh memilih satu hal terbaik yang pernah terjadi dalam hidupku, mungkin jawabannya sederhana: bertemu denganmu.
+
+Bukan karena semuanya selalu sempurna.
+
+Tapi karena sejak ada kamu, banyak hal terasa lebih ringan untuk dijalani.
+
+Terima kasih sudah hadir.
+
+Terima kasih sudah bertahan.
+
+Dan terima kasih sudah menjadi salah satu alasan kenapa aku selalu punya sesuatu untuk disyukuri setiap hari.`;
+
+  const container = document.getElementById('letter-text');
+  const cursor    = document.createElement('span');
+  cursor.id = 'typing-cursor'; container.appendChild(cursor);
+
+  let started = false;
+  const obs = new IntersectionObserver(entries => {
+    if (entries[0].isIntersecting && !started) {
+      started = true;
+      startTyping();
+      obs.disconnect();
+    }
+  }, { threshold: 0.3 });
+  obs.observe(document.getElementById('letter-wrap'));
+
+  function startTyping() {
+    const paras = text.split('\n\n');
+    let pIdx = 0, cIdx = 0;
+    const nodes = paras.map(() => {
+      const p = document.createElement('p');
+      container.insertBefore(p, cursor);
+      return p;
+    });
+
+    function type() {
+      if (pIdx >= paras.length) {
+        cursor.remove();
+        setTimeout(() => {
+          const sig = document.getElementById('sig');
+          if (sig) sig.classList.add('show');
+        }, 400);
+        return;
+      }
+      const para = paras[pIdx];
+      if (cIdx < para.length) {
+        nodes[pIdx].textContent += para[cIdx];
+        cIdx++;
+        setTimeout(type, 18);
+      } else {
+        pIdx++; cIdx = 0;
+        setTimeout(type, 280);
+      }
+    }
+    setTimeout(type, 600);
+  }
+})();
+
+// ===========================
+// DREAM PARTICLES
+// ===========================
+(function() {
+  const container = document.getElementById('dreams-particles');
+  for (let i = 0; i < 25; i++) {
+    const p = document.createElement('div');
+    p.className = 'dream-particle';
+    p.style.left = Math.random() * 100 + 'vw';
+    p.style.animationDuration = (6 + Math.random() * 10) + 's';
+    p.style.animationDelay    = (Math.random() * 10) + 's';
+    p.style.width = p.style.height = (2 + Math.random() * 3) + 'px';
+    p.style.opacity = Math.random() * 0.6 + 0.2;
+    container.appendChild(p);
+  }
+})();
+
+// ===========================
+// MUSIC PLAYER
+// ===========================
+let musicOpen = false;
+let isPlaying = false;
+const audio = document.getElementById('bg-audio');
+
+function openMusicPlayer() {
+  document.getElementById('music-player').classList.add('open');
+  musicOpen = true;
+  setTimeout(() => {
+    audio.play().then(() => {
+      isPlaying = true;
+      updatePlayBtn();
+    }).catch(() => {});
+  }, 400);
+}
+function closeMusicPlayer() {
+  document.getElementById('music-player').classList.remove('open');
+  audio.pause(); isPlaying = false; musicOpen = false;
+  updatePlayBtn();
+}
+function toggleMusic() {
+  if (isPlaying) {
+    audio.pause(); isPlaying = false;
+  } else {
+    audio.play(); isPlaying = true;
+  }
+  updatePlayBtn();
+}
+function updatePlayBtn() {
+  document.getElementById('play-icon').style.display  = isPlaying ? 'none' : 'block';
+  document.getElementById('pause-icon').style.display = isPlaying ? 'block' : 'none';
+}
+
+// ===========================
+// FLOATING HEARTS on scroll
+// ===========================
+let lastHeart = 0;
+window.addEventListener('scroll', () => {
+  const now = Date.now();
+  if (now - lastHeart < 800) return;
+  lastHeart = now;
+
+  if (Math.random() > 0.4) return;
+  const h = document.createElement('div');
+  h.className = 'floating-heart';
+  h.textContent = ['❤️','🌸','✨'][Math.floor(Math.random()*3)];
+  h.style.left = (20 + Math.random() * 60) + 'vw';
+  h.style.bottom = '5vh';
+  h.style.fontSize = (0.8 + Math.random() * 0.6) + 'rem';
+  document.body.appendChild(h);
+  setTimeout(() => h.remove(), 4200);
+});
+
+// ===========================
+// SMOOTH SCROLL for anchors
+// ===========================
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+</script>
+</body>
+</html>
